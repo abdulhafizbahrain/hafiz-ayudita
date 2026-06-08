@@ -1,0 +1,136 @@
+:root {
+  --backdrop-card-blur: 18px;
+  --backdrop-card-opacity: 0.74;
+  --backdrop-card-border-opacity: 0.28;
+  --backdrop-card-shadow: 0.16;
+
+  --backdrop-nav-blur: 18px;
+  --backdrop-nav-opacity: 0.74;
+  --backdrop-nav-border-opacity: 0.28;
+  --backdrop-nav-shadow: 0.20;
+
+  --backdrop-form-blur: 20px;
+  --backdrop-form-opacity: 0.78;
+  --backdrop-form-border-opacity: 0.30;
+  --backdrop-form-shadow: 0.18;
+
+  --backdrop-cover-blur: 20px;
+  --backdrop-cover-opacity: 0.76;
+  --backdrop-cover-border-opacity: 0.30;
+  --backdrop-cover-shadow: 0.20;
+}
+
+.soft-card {
+  background: color-mix(in srgb, white calc(var(--backdrop-card-opacity) * 100%), transparent);
+  border-color: rgba(216, 169, 40, var(--backdrop-card-border-opacity));
+  box-shadow: 0 18px 50px rgba(70, 48, 9, var(--backdrop-card-shadow));
+  backdrop-filter: blur(var(--backdrop-card-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-card-blur));
+}
+
+.cover-card {
+  background: color-mix(in srgb, white calc(var(--backdrop-cover-opacity) * 100%), transparent);
+  border-color: rgba(216, 169, 40, var(--backdrop-cover-border-opacity));
+  box-shadow: 0 18px 50px rgba(70, 48, 9, var(--backdrop-cover-shadow));
+  backdrop-filter: blur(var(--backdrop-cover-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-cover-blur));
+}
+
+.form-card {
+  background: color-mix(in srgb, white calc(var(--backdrop-form-opacity) * 100%), transparent);
+  border-color: rgba(216, 169, 40, var(--backdrop-form-border-opacity));
+  box-shadow: 0 18px 50px rgba(70, 48, 9, var(--backdrop-form-shadow));
+  backdrop-filter: blur(var(--backdrop-form-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-form-blur));
+}
+
+.bottom-nav {
+  background: rgba(var(--backdrop-nav-tint, 255, 255, 255), var(--backdrop-nav-opacity, 0.52)) !important;
+  border: 1px solid rgba(216, 169, 40, var(--backdrop-nav-border-opacity, 0.30)) !important;
+  box-shadow: 0 18px 50px rgba(40, 30, 8, var(--backdrop-nav-shadow, 0.18)) !important;
+  backdrop-filter: blur(var(--backdrop-nav-blur, 28px)) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(var(--backdrop-nav-blur, 28px)) saturate(145%) !important;
+}
+
+
+/* V7 FIX: bottom nav glass/backdrop benar-benar transparan */
+.bottom-nav,
+#bottomNav {
+  background: rgba(var(--backdrop-nav-tint, 255, 255, 255), var(--backdrop-nav-opacity, 0.52)) !important;
+  border: 1px solid rgba(216, 169, 40, var(--backdrop-nav-border-opacity, 0.30)) !important;
+  box-shadow: 0 18px 50px rgba(40, 30, 8, var(--backdrop-nav-shadow, 0.18)) !important;
+  backdrop-filter: blur(var(--backdrop-nav-blur, 28px)) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(var(--backdrop-nav-blur, 28px)) saturate(145%) !important;
+}
+
+.bottom-nav::before,
+#bottomNav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,.34), rgba(255,255,255,.08));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bottom-nav a,
+#bottomNav a,
+.bottom-nav button,
+#bottomNav button,
+.bottom-nav .nav-link,
+#bottomNav .nav-link {
+  background: rgba(255, 255, 255, 0.20) !important;
+  backdrop-filter: blur(calc(var(--backdrop-nav-blur, 28px) * .45)) !important;
+  -webkit-backdrop-filter: blur(calc(var(--backdrop-nav-blur, 28px) * .45)) !important;
+}
+
+
+/* ==============================
+   V9 NAV GLASS / BACKDROP
+   Diatur dari config/backdrop.config.js
+   ============================== */
+
+.bottom-nav,
+#bottomNav {
+  background: rgba(var(--backdrop-nav-tint, 255, 255, 255), var(--backdrop-nav-opacity, 0.48)) !important;
+  border: 1px solid rgba(216, 169, 40, var(--backdrop-nav-border-opacity, 0.30)) !important;
+  box-shadow: 0 18px 50px rgba(40, 30, 8, var(--backdrop-nav-shadow, 0.18)) !important;
+  backdrop-filter: blur(var(--backdrop-nav-blur, 32px)) saturate(155%) !important;
+  -webkit-backdrop-filter: blur(var(--backdrop-nav-blur, 32px)) saturate(155%) !important;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.bottom-nav::before,
+#bottomNav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.38), rgba(255,255,255,.08)),
+    radial-gradient(circle at 18% 0%, rgba(255,255,255,.46), transparent 34%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bottom-nav button,
+#bottomNav button,
+.bottom-nav .nav-link,
+#bottomNav .nav-link {
+  background: rgba(255, 255, 255, var(--backdrop-nav-button-opacity, 0.24)) !important;
+  border: 1px solid rgba(216, 169, 40, var(--backdrop-nav-button-border-opacity, 0.22)) !important;
+  backdrop-filter: blur(var(--backdrop-nav-button-blur, 18px)) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(var(--backdrop-nav-button-blur, 18px)) saturate(140%) !important;
+  box-shadow: 0 8px 22px rgba(40, 30, 8, .08) !important;
+}
+
+.bottom-nav button.active,
+#bottomNav button.active,
+.bottom-nav .nav-link.active,
+#bottomNav .nav-link.active {
+  background:
+    linear-gradient(135deg, rgba(246, 211, 101, .36), rgba(255, 243, 184, .22)),
+    rgba(255, 255, 255, var(--backdrop-nav-button-active-opacity, 0.42)) !important;
+}

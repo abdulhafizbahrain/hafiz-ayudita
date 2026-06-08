@@ -1,0 +1,1881 @@
+.quote-card {
+  padding: 28px 22px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.quote-text {
+  font-family: var(--font-heading);
+  font-size: 1.14rem;
+  margin: 0;
+}
+
+.quote-source {
+  color: var(--color-text-secondary);
+  margin-top: 12px;
+  font-size: .92rem;
+}
+
+.couple-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.couple-card {
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.couple-role {
+  color: var(--color-text-secondary);
+  font-size: .86rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 800;
+}
+
+.couple-name {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  margin: 12px 0 10px;
+}
+
+.couple-parent {
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.couple-separator {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-script);
+  font-size: 3.6rem;
+  color: var(--color-primary-deep);
+  margin: 4px 0;
+}
+
+.event-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.event-card {
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.event-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  margin: 0 0 14px;
+}
+
+.event-time {
+  display: inline-flex;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-text-primary);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.event-place {
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.countdown-item {
+  padding: 16px 8px;
+  text-align: center;
+}
+
+.countdown-value {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--color-primary-deep);
+}
+
+.countdown-label {
+  font-size: .76rem;
+  color: var(--color-text-secondary);
+}
+
+.location-card,
+.gift-card,
+.form-card,
+.guestbook-card {
+  padding: 24px 20px;
+}
+
+.map-frame {
+  width: 100%;
+  min-height: 260px;
+  border: 0;
+  border-radius: 24px;
+  margin-top: 18px;
+  background: var(--color-primary-soft);
+}
+
+.map-empty {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: 30px 18px;
+  border: 1px dashed var(--color-border);
+  border-radius: 24px;
+  background: rgba(255,255,255,.5);
+}
+
+.gallery-swiper {
+  width: 100%;
+  padding-bottom: 34px;
+}
+
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 28px;
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-placeholder {
+  height: 360px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--color-text-secondary);
+  border-radius: 28px;
+  border: 1px dashed var(--color-border);
+  background: rgba(255,255,255,.56);
+}
+
+.story-list {
+  display: grid;
+  gap: 16px;
+}
+
+.story-item {
+  padding: 20px;
+}
+
+.story-time {
+  font-weight: 800;
+  color: var(--color-primary-deep);
+}
+
+.story-title {
+  margin: 8px 0;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+}
+
+.account-card {
+  padding: 16px;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,.58);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
+
+.account-number {
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.list-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.guest-item,
+.wish-item {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.58);
+  border: 1px solid var(--color-border);
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.item-name {
+  font-weight: 900;
+}
+
+.item-meta {
+  color: var(--color-text-secondary);
+  font-size: .82rem;
+}
+
+.item-message {
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 6px 0 0;
+}
+
+.closing-card {
+  padding: 34px 22px;
+  text-align: center;
+}
+
+.closing-names {
+  font-family: var(--font-script);
+  font-size: 3.5rem;
+  color: var(--color-primary-deep);
+  margin: 14px 0 0;
+}
+
+
+/* V7: dibutuhkan agar efek glass nav dan pseudo-element tampil benar */
+.bottom-nav,
+#bottomNav {
+  position: fixed;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+
+/* ==============================
+   GALLERY MODES - V8
+   Mode aktif dari config/media.config.js:
+   "swiper", "grid", "masonry", "carousel", "coverflow", "stack", "polaroid"
+   ============================== */
+
+.gallery-layout {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.gallery-img {
+  display: block;
+  width: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius-card, 28px);
+  cursor: zoom-in;
+  background: rgba(255, 255, 255, .36);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gallery-grid .gallery-img {
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-masonry {
+  columns: 2 160px;
+  column-gap: 12px;
+}
+
+.gallery-masonry .gallery-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+.gallery-masonry .gallery-item:nth-child(3n + 1) .gallery-img {
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-masonry .gallery-item:nth-child(3n + 2) .gallery-img {
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-masonry .gallery-item:nth-child(3n + 3) .gallery-img {
+  aspect-ratio: 5 / 4;
+}
+
+.gallery-polaroid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.gallery-polaroid-card {
+  margin: 0;
+  padding: 10px 10px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .82);
+  box-shadow: 0 18px 40px rgba(64, 42, 8, .14);
+  transform: rotate(var(--polaroid-rotate, -1.5deg));
+}
+
+.gallery-polaroid-card:nth-child(even) {
+  --polaroid-rotate: 1.6deg;
+}
+
+.gallery-polaroid-card .gallery-img {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  min-height: 160px;
+}
+
+.gallery-polaroid-card figcaption {
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--font-script, cursive);
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}
+
+.gallery-stack {
+  position: relative;
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+}
+
+.gallery-stack-card {
+  position: absolute;
+  width: min(78vw, 340px);
+  transform:
+    translateX(calc((var(--stack-index) - 1) * 13px))
+    translateY(calc((var(--stack-index) - 1) * 10px))
+    rotate(calc((var(--stack-index) - 1) * 3deg));
+  z-index: calc(20 - var(--stack-index));
+  transition: transform 420ms ease;
+}
+
+.gallery-stack-card:hover {
+  transform: translateY(-8px) rotate(0deg) scale(1.02);
+  z-index: 30;
+}
+
+.gallery-stack-card .gallery-img {
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 20px 48px rgba(64, 42, 8, .18);
+}
+
+.gallery-swiper .gallery-img {
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-mode-carousel .gallery-img {
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-mode-coverflow .swiper-slide {
+  transform-style: preserve-3d;
+}
+
+.gallery-preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(25, 18, 8, .72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.gallery-preview-modal.hidden {
+  display: none;
+}
+
+.gallery-preview-img {
+  max-width: min(94vw, 980px);
+  max-height: 86vh;
+  object-fit: contain;
+  border-radius: 24px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .34);
+}
+
+.gallery-preview-close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, .72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+}
+
+@media (min-width: 720px) {
+  .gallery-grid,
+  .gallery-polaroid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .gallery-img {
+    min-height: 280px;
+  }
+
+  .gallery-stack {
+    min-height: 460px;
+  }
+}
+
+
+/* ==============================
+   V9 NAV SHOW AFTER OPEN + SMOOTH ANIMATION
+   Jangan pakai display:none agar transisi bisa berjalan.
+   ============================== */
+
+.bottom-nav,
+#bottomNav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition:
+    opacity 620ms ease,
+    transform 620ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 620ms ease,
+    visibility 620ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.bottom-nav.nav-hidden,
+#bottomNav.nav-hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(32px) scale(0.94) !important;
+  filter: blur(6px) !important;
+}
+
+.bottom-nav.nav-show,
+#bottomNav.nav-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0) !important;
+}
+
+
+/* ==============================
+   V20 GALLERY PREVIEW CENTER FIX
+   Modal preview foto dibuat presisi di tengah dan punya margin aman.
+   ============================== */
+
+.gallery-preview-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding:
+    calc(24px + env(safe-area-inset-top))
+    calc(18px + env(safe-area-inset-right))
+    calc(24px + env(safe-area-inset-bottom))
+    calc(18px + env(safe-area-inset-left)) !important;
+  box-sizing: border-box !important;
+  background: rgba(25, 18, 8, .72) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.gallery-preview-modal.hidden {
+  display: none !important;
+}
+
+.gallery-preview-img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: calc(100vw - 36px - env(safe-area-inset-left) - env(safe-area-inset-right)) !important;
+  max-height: calc(100vh - 72px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: auto !important;
+  border-radius: 22px !important;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .34) !important;
+}
+
+.gallery-preview-close {
+  position: fixed !important;
+  top: calc(16px + env(safe-area-inset-top)) !important;
+  right: calc(16px + env(safe-area-inset-right)) !important;
+  z-index: 10000 !important;
+}
+
+
+/* ==============================
+   V28 GUESTBOOK PAGINATION + COUNT BADGE
+   ============================== */
+
+.guestbook-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 10px 0 12px;
+}
+
+.guestbook-heading-row h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.8vw, 1.35rem);
+}
+
+.guestbook-count-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(246, 211, 101, .34);
+  border: 1px solid rgba(216, 169, 40, .34);
+  color: var(--color-text-primary);
+  font-size: .82rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 8px 24px rgba(40, 30, 8, .08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.guestbook-divider {
+  height: 1px;
+  margin: 22px 0;
+  background: linear-gradient(90deg, transparent, rgba(216, 169, 40, .38), transparent);
+}
+
+.guestbook-pagination {
+  margin-top: 14px;
+}
+
+.pagination-info {
+  margin-bottom: 10px;
+  color: var(--color-text-secondary);
+  font-size: .84rem;
+  text-align: center;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination-pages {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-btn,
+.pagination-page {
+  border: 1px solid rgba(216, 169, 40, .28);
+  border-radius: 999px;
+  min-height: 34px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, .46);
+  color: var(--color-text-primary);
+  font-weight: 800;
+  font-size: .78rem;
+  box-shadow: 0 8px 18px rgba(40, 30, 8, .07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.pagination-page {
+  width: 34px;
+  padding: 0;
+}
+
+.pagination-page.active {
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  border-color: rgba(216, 169, 40, .48);
+}
+
+.pagination-btn:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+  color: var(--color-text-secondary);
+  font-weight: 800;
+  padding: 0 2px;
+}
+
+@media (max-width: 520px) {
+  .guestbook-heading-row {
+    align-items: flex-start;
+  }
+
+  .guestbook-count-badge {
+    min-width: auto;
+    padding: 7px 10px;
+    font-size: .76rem;
+  }
+
+  .pagination-controls {
+    gap: 6px;
+  }
+
+  .pagination-btn {
+    padding: 8px 10px;
+  }
+}
+
+
+/* ==============================
+   V29 POLISH: closing margin, full buttons, compact badge, smooth skip
+   ============================== */
+
+/* 1. Closing card diberi ruang agar tidak tertutup bottom nav */
+#closing {
+  padding-bottom: calc(120px + env(safe-area-inset-bottom)) !important;
+}
+
+.closing-card {
+  margin-bottom: calc(42px + env(safe-area-inset-bottom)) !important;
+}
+
+/* 2. Tombol di dalam card dibuat full fit mengikuti lebar card */
+.form-card .primary-button,
+.cover-card .primary-button,
+.guestbook-card .primary-button,
+.closing-card .primary-button,
+.location-card .primary-button,
+.gift-card .primary-button,
+.soft-card > .primary-button,
+.soft-card p > .primary-button {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center;
+}
+
+.location-card p:has(.primary-button),
+.soft-card p:has(.primary-button) {
+  width: 100%;
+}
+
+/* 5. Badge hanya angka, menempel di kanan atas tulisan judul */
+.guestbook-heading-row {
+  justify-content: flex-start !important;
+  margin-bottom: 12px;
+}
+
+.guestbook-title-with-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0;
+  padding-right: 30px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.guestbook-count-badge {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  min-width: 24px !important;
+  height: 24px;
+  padding: 0 7px !important;
+  border-radius: 999px;
+  font-size: .72rem !important;
+  line-height: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* 3. Pagination lebih ringkas untuk tombol < dan > */
+.pagination-btn {
+  min-width: 38px;
+  padding: 8px 12px;
+  font-size: .95rem;
+}
+
+/* 4. Ketika tombol Lewati ditekan, video crossfade lebih smooth ke hero */
+.intro-video-overlay.intro-video-crossfade-to-hero {
+  animation: introVideoSkipSoftOut var(--intro-video-fade-duration, 700ms) cubic-bezier(.16, 1, .3, 1) both !important;
+}
+
+@keyframes introVideoSkipSoftOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+
+  55% {
+    opacity: .48;
+    transform: scale(1.012);
+    filter: blur(5px) brightness(1.08);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.024);
+    filter: blur(12px) brightness(1.15);
+  }
+}
+
+@media (max-width: 520px) {
+  #closing {
+    padding-bottom: calc(136px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .guestbook-title-with-badge {
+    padding-right: 28px;
+  }
+
+  .guestbook-count-badge {
+    top: -9px;
+    height: 22px;
+    min-width: 22px !important;
+    line-height: 22px;
+    font-size: .68rem !important;
+  }
+}
+
+
+/* ==============================
+   V30 BADGE SEJAJAR, HERO BALANCED, COUPLE PHOTO
+   ============================== */
+
+/* Badge jumlah buku tamu sejajar dengan teks judul */
+.guestbook-heading-row {
+  justify-content: flex-start !important;
+  margin-bottom: 12px;
+}
+
+.guestbook-title-with-badge {
+  position: static !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding-right: 0 !important;
+  width: auto !important;
+  max-width: 100%;
+}
+
+.guestbook-count-badge {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  transform: none !important;
+  min-width: 26px !important;
+  height: 24px !important;
+  padding: 0 8px !important;
+  border-radius: 999px;
+  line-height: 24px !important;
+  font-size: .72rem !important;
+  font-weight: 900;
+  vertical-align: middle !important;
+}
+
+/* Hero: jarak lebih seimbang antara Akad Nikah & Resepsi, Hafiz & Ayu, Jadwal Acara */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-kicker,
+.hero-small,
+.hero-subtitle {
+  margin-bottom: clamp(12px, 2.2vw, 18px) !important;
+}
+
+.hero-title,
+.hero-names,
+.hero-signature-wrap,
+.hero-signature {
+  margin-top: 0 !important;
+  margin-bottom: clamp(18px, 3vw, 28px) !important;
+}
+
+.hero-date,
+.hero-event,
+.hero-info,
+.hero-actions,
+.hero-schedule,
+.hero-countdown,
+.hero-content .event-summary {
+  margin-top: clamp(12px, 2.5vw, 22px) !important;
+}
+
+.hero-content > * + * {
+  margin-top: clamp(10px, 2vw, 18px);
+}
+
+/* Foto rounded pada card mempelai */
+.couple-photo-wrap {
+  width: min(176px, 54vw);
+  aspect-ratio: 3 / 4;
+  margin: 0 auto 18px;
+  padding: 7px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .58);
+  border: 1px solid rgba(216, 169, 40, .34);
+  box-shadow: 0 18px 46px rgba(40, 30, 8, .14);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.couple-photo-wrap.rounded {
+  border-radius: 30px;
+}
+
+.couple-photo-wrap.circle {
+  width: min(172px, 52vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+}
+
+.couple-photo-wrap.soft-square {
+  border-radius: 20px;
+}
+
+.couple-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.couple-card {
+  overflow: visible;
+}
+
+@media (max-width: 720px) {
+  .hero-content {
+    gap: 0;
+    padding-top: clamp(26px, 7vh, 54px);
+    padding-bottom: clamp(34px, 8vh, 64px);
+  }
+
+  .hero-title,
+  .hero-names,
+  .hero-signature-wrap,
+  .hero-signature {
+    margin-bottom: 22px !important;
+  }
+
+  .hero-date,
+  .hero-event,
+  .hero-info,
+  .hero-actions,
+  .hero-schedule,
+  .hero-countdown,
+  .hero-content .event-summary {
+    margin-top: 16px !important;
+  }
+
+  .couple-photo-wrap {
+    width: min(160px, 58vw);
+    margin-bottom: 16px;
+  }
+}
+
+
+/* ==============================
+   V31 FIX COUPLE PHOTO BORDER + HERO TOP GAP
+   ============================== */
+
+/* 1. Foto mempelai: rounded dibuat presisi, border putih rata semua sisi */
+.couple-photo-wrap {
+  position: relative !important;
+  width: min(176px, 54vw) !important;
+  aspect-ratio: 3 / 4 !important;
+  margin: 0 auto 18px !important;
+  padding: 0 !important;
+  border-radius: 30px !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  border: 7px solid rgba(255, 255, 255, .92) !important;
+  box-shadow:
+    0 0 0 1px rgba(216, 169, 40, .24),
+    0 18px 46px rgba(40, 30, 8, .14) !important;
+  box-sizing: border-box !important;
+}
+
+.couple-photo-wrap.rounded {
+  border-radius: 30px !important;
+}
+
+.couple-photo-wrap.circle {
+  width: min(172px, 52vw) !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 999px !important;
+}
+
+.couple-photo-wrap.soft-square {
+  border-radius: 20px !important;
+}
+
+.couple-photo {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: calc(30px - 7px) !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: top !important;
+}
+
+.couple-photo-wrap.circle .couple-photo {
+  border-radius: 999px !important;
+}
+
+.couple-photo-wrap.soft-square .couple-photo {
+  border-radius: 13px !important;
+}
+
+/* 2. Hero: hilangkan celah putih atas, background benar-benar nempel ke atas */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#mainContent,
+#hero,
+.hero-section {
+  margin-top: 0 !important;
+}
+
+.hero-section {
+  position: relative !important;
+  min-height: 100svh !important;
+  padding-top: 0 !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
+}
+
+.hero-bg,
+.hero-section .hero-bg,
+.hero-section::before,
+.hero-section::after {
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.hero-bg,
+.hero-section .hero-bg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100svh !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  transform: translateY(0) scale(1.001) !important;
+}
+
+.hero-section::before,
+.hero-section::after {
+  inset: 0 !important;
+}
+
+@media (max-width: 720px) {
+  .couple-photo-wrap {
+    width: min(160px, 58vw) !important;
+    border-width: 6px !important;
+    border-radius: 28px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .couple-photo {
+    border-radius: 22px !important;
+  }
+
+  .hero-section {
+    min-height: 100dvh !important;
+  }
+
+  .hero-bg,
+  .hero-section .hero-bg {
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    background-position: center top !important;
+  }
+}
+
+
+/* ==============================
+   V32 GALLERY PREVIEW NAVIGATION
+   ============================== */
+
+.gallery-preview-nav {
+  position: fixed !important;
+  top: 50% !important;
+  z-index: 10001 !important;
+  width: 46px !important;
+  height: 46px !important;
+  border: 1px solid rgba(255, 255, 255, .42) !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transform: translateY(-50%) !important;
+  background: rgba(255, 255, 255, .22) !important;
+  color: #fff !important;
+  font-size: 1.6rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, .24) !important;
+  backdrop-filter: blur(18px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+}
+
+.gallery-preview-prev {
+  left: calc(16px + env(safe-area-inset-left)) !important;
+}
+
+.gallery-preview-next {
+  right: calc(16px + env(safe-area-inset-right)) !important;
+}
+
+.gallery-preview-nav:disabled {
+  opacity: .35 !important;
+  cursor: not-allowed !important;
+}
+
+.gallery-preview-counter {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+  transform: translateX(-50%) !important;
+  z-index: 10001 !important;
+  min-width: 58px !important;
+  padding: 8px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .20) !important;
+  color: #fff !important;
+  text-align: center !important;
+  font-size: .82rem !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, .34) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+}
+
+.gallery-preview-img.preview-image-enter {
+  animation: galleryPreviewImageEnter 260ms ease both;
+}
+
+@keyframes galleryPreviewImageEnter {
+  from {
+    opacity: .72;
+    transform: scale(.985);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .gallery-preview-nav {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.35rem !important;
+  }
+
+  .gallery-preview-prev {
+    left: calc(8px + env(safe-area-inset-left)) !important;
+  }
+
+  .gallery-preview-next {
+    right: calc(8px + env(safe-area-inset-right)) !important;
+  }
+
+  .gallery-preview-img {
+    max-width: calc(100vw - 74px - env(safe-area-inset-left) - env(safe-area-inset-right)) !important;
+  }
+}
+
+
+/* ==============================
+   V33 HERO BOTTOM LIGHT DIVIDER + FULL GUESTBOOK COUNT
+   ============================== */
+
+/* Pemisah lembut di bagian bawah foto background Hero */
+.hero-section {
+  position: relative !important;
+}
+
+.hero-section .hero-bottom-light,
+.hero-section::marker {
+  display: none;
+}
+
+.hero-section::before {
+  pointer-events: none;
+}
+
+/* Layer khusus pemisah bawah Hero */
+.hero-section::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1px !important;
+  height: clamp(88px, 16vh, 156px) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(ellipse at center bottom, rgba(246, 211, 101, .34), transparent 58%),
+    linear-gradient(180deg, rgba(255, 253, 247, 0), rgba(255, 253, 247, .72) 58%, var(--color-background) 100%) !important;
+  filter: blur(.1px) !important;
+}
+
+/* Garis light tipis agar transisi foto ke section bawah terasa rapi */
+.hero-section .hero-light-border {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(20px, 4vh, 34px);
+  transform: translateX(-50%);
+  width: min(78vw, 420px);
+  height: 1px;
+  z-index: 4;
+  background: linear-gradient(90deg, transparent, rgba(216, 169, 40, .58), transparent);
+  box-shadow: 0 0 18px rgba(246, 211, 101, .45);
+  pointer-events: none;
+}
+
+/* Jika .hero-light-border belum ada di HTML, gunakan fallback dekorasi melalui hero-content */
+.hero-content::after {
+  content: "";
+  display: block;
+  width: min(70vw, 360px);
+  height: 1px;
+  margin: clamp(20px, 4vh, 34px) auto 0;
+  background: linear-gradient(90deg, transparent, rgba(216, 169, 40, .54), transparent);
+  box-shadow: 0 0 18px rgba(246, 211, 101, .42);
+}
+
+@media (max-width: 720px) {
+  .hero-section::after {
+    height: 128px !important;
+  }
+
+  .hero-content::after {
+    width: min(74vw, 320px);
+    margin-top: 24px;
+  }
+}
+
+
+/* ==============================
+   V34 HERO DIVIDER FIX
+   Divider dipindahkan ke bawah foto dan dibuat ngeblur ke atas sedikit.
+   Tidak lagi memakai .hero-section::after agar tidak muncul di atas foto.
+   ============================== */
+
+/* Matikan divider V33 yang memakai pseudo-element global */
+.hero-section::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Divider actual element berada di bawah Hero */
+.hero-light-border {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1px !important;
+  width: 100% !important;
+  height: clamp(92px, 15vh, 150px) !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+  transform: none !important;
+  background:
+    radial-gradient(ellipse at center bottom, rgba(246, 211, 101, .30), transparent 58%),
+    linear-gradient(
+      180deg,
+      rgba(255, 253, 247, 0) 0%,
+      rgba(255, 253, 247, .18) 26%,
+      rgba(255, 248, 225, .62) 68%,
+      var(--color-background) 100%
+    ) !important;
+  filter: blur(0) !important;
+  box-shadow: none !important;
+}
+
+/* Garis light tipis di dalam blur, posisinya tetap bawah */
+.hero-light-border::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  bottom: clamp(22px, 3.8vh, 34px) !important;
+  transform: translateX(-50%) !important;
+  width: min(78vw, 420px) !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(216, 169, 40, .62), transparent) !important;
+  box-shadow: 0 0 20px rgba(246, 211, 101, .55) !important;
+}
+
+/* Hapus fallback garis pada hero-content supaya tidak muncul di atas foto */
+.hero-content::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Pastikan konten Hero berada di atas background, dan divider di bawah area foto */
+.hero-bg {
+  z-index: 0 !important;
+}
+
+.hero-content {
+  position: relative !important;
+  z-index: 4 !important;
+}
+
+@media (max-width: 720px) {
+  .hero-light-border {
+    height: 128px !important;
+  }
+
+  .hero-light-border::after {
+    bottom: 28px !important;
+    width: min(74vw, 320px) !important;
+  }
+}
+
+
+/* ==============================
+   V36 GROUP INVITATION PARAMETER
+   ============================== */
+
+/* Agar parameter togroup tampil sebagai baris baru di cover */
+.guest-name {
+  white-space: pre-line;
+}
+
+
+/* ==============================
+   V37 SELECT / DROPDOWN POLISH
+   ============================== */
+
+/* Select dibuat lebih rapi dan panah tidak nempel kanan */
+.form-row select {
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 14px 52px 14px 16px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(216, 169, 40, .28) !important;
+  background-color: rgba(255, 255, 255, .74) !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-body) !important;
+  font-size: .96rem !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .52), 0 10px 24px rgba(40, 30, 8, .055) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  cursor: pointer !important;
+
+  /* Panah custom, posisinya diberi jarak dari kanan */
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(184, 138, 42, .95) 50%),
+    linear-gradient(135deg, rgba(184, 138, 42, .95) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(216, 169, 40, .18), rgba(216, 169, 40, .18)) !important;
+  background-position:
+    calc(100% - 29px) 50%,
+    calc(100% - 21px) 50%,
+    calc(100% - 44px) 50% !important;
+  background-size:
+    8px 8px,
+    8px 8px,
+    1px 24px !important;
+  background-repeat: no-repeat !important;
+}
+
+.form-row select:hover {
+  border-color: rgba(216, 169, 40, .42) !important;
+  background-color: rgba(255, 255, 255, .84) !important;
+}
+
+.form-row select:focus {
+  outline: none !important;
+  border-color: rgba(216, 169, 40, .62) !important;
+  box-shadow:
+    0 0 0 4px rgba(246, 211, 101, .18),
+    inset 0 1px 0 rgba(255, 255, 255, .62),
+    0 12px 28px rgba(40, 30, 8, .08) !important;
+}
+
+.form-row select option {
+  color: #3B2B14;
+  background: #FFFDF7;
+  font-weight: 600;
+}
+
+/* IE/Edge legacy arrow */
+.form-row select::-ms-expand {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  .form-row select {
+    min-height: 50px !important;
+    padding-right: 50px !important;
+    background-position:
+      calc(100% - 28px) 50%,
+      calc(100% - 20px) 50%,
+      calc(100% - 42px) 50% !important;
+  }
+}
+
+
+/* ==============================
+   V39 HERO BLUR + VIDEO TOP FIX + SMOOTH CROSSFADE
+   ============================== */
+
+/* Background Hero dapat blur dari config/media.config.js */
+.hero-section .hero-bg,
+.hero-bg {
+  filter:
+    blur(var(--hero-bg-blur, 0px))
+    brightness(var(--hero-bg-brightness, 1.08))
+    saturate(var(--hero-bg-saturation, 1.06))
+    contrast(var(--hero-bg-contrast, 1.02)) !important;
+  transform: translateY(0) scale(var(--hero-bg-scale, 1.018)) !important;
+  transform-origin: center top !important;
+}
+
+/* Video intro dipaksa benar-benar nempel ke atas layar */
+.intro-video-overlay,
+.intro-video-overlay.intro-video-top-fixed {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+  place-items: stretch !important;
+  background: #000 !important;
+}
+
+.intro-video {
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform-origin: center top !important;
+}
+
+/* Video → Hero crossfade lebih halus */
+.intro-video-overlay.intro-video-fading-out,
+.intro-video-overlay.intro-video-crossfade-to-hero {
+  visibility: visible !important;
+  pointer-events: none !important;
+  animation: introVideoV39CrossfadeOut var(--intro-video-fade-duration, 2600ms) cubic-bezier(.16, 1, .3, 1) both !important;
+}
+
+@keyframes introVideoV39CrossfadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+
+  38% {
+    opacity: .82;
+    transform: scale(1.006);
+    filter: blur(2px) brightness(1.04);
+  }
+
+  68% {
+    opacity: .38;
+    transform: scale(1.014);
+    filter: blur(8px) brightness(1.10);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.026);
+    filter: blur(14px) brightness(1.16);
+  }
+}
+
+/* Hero muncul seperti menyala perlahan di bawah video */
+#mainContent.main-entering {
+  display: block !important;
+  opacity: 0;
+  transform: translateY(0) scale(1.012);
+  filter: blur(14px) brightness(1.14);
+  will-change: opacity, transform, filter;
+}
+
+#mainContent.main-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0) brightness(1);
+  transition:
+    opacity var(--hero-enter-duration, 2200ms) cubic-bezier(.16, 1, .3, 1),
+    transform var(--hero-enter-duration, 2200ms) cubic-bezier(.16, 1, .3, 1),
+    filter var(--hero-enter-duration, 2200ms) cubic-bezier(.16, 1, .3, 1) !important;
+}
+
+#mainContent.main-entering .hero-content {
+  animation: heroV39SoftReveal var(--hero-enter-duration, 2200ms) cubic-bezier(.16, 1, .3, 1) both !important;
+}
+
+@keyframes heroV39SoftReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(.97);
+    filter: blur(12px);
+  }
+
+  55% {
+    opacity: .78;
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Saat video menjadi backsound, tetap ada di dokumen tanpa mengganggu tampilan */
+.intro-video-overlay.intro-video-audio-only {
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  width: 1px !important;
+  height: 1px !important;
+  left: 0 !important;
+  top: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  overflow: hidden !important;
+  z-index: -1 !important;
+}
+
+@media (max-width: 720px) {
+  .intro-video-overlay,
+  .intro-video {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    object-position: center top !important;
+  }
+
+  #mainContent.main-enter-active {
+    transition-duration: 2400ms, 2400ms, 2400ms !important;
+  }
+}
+
+
+/* ==============================
+   V41 FROM V39: DESKTOP HERO FULL SCREEN + SHORT VIDEO FADE
+   ============================== */
+
+/* Desktop: Hero benar-benar full mengikuti ukuran layar */
+@media (min-width: 721px) {
+  #mainContent,
+  #hero,
+  .hero-section {
+    width: 100vw !important;
+    max-width: none !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-section {
+    display: grid !important;
+    place-items: center !important;
+    padding-top: clamp(48px, 7vh, 86px) !important;
+    padding-bottom: clamp(48px, 7vh, 86px) !important;
+  }
+
+  .hero-section .hero-bg,
+  .hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    transform-origin: center center !important;
+  }
+
+  .hero-content {
+    width: min(92vw, 900px) !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Video ke Hero dibuat pendek: fade transparan, bukan gelap lama */
+.intro-video-overlay.intro-video-fading-out,
+.intro-video-overlay.intro-video-crossfade-to-hero {
+  background: transparent !important;
+  animation: introVideoV41ShortFadeOut var(--intro-video-fade-duration, 850ms) ease-out both !important;
+}
+
+@keyframes introVideoV41ShortFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.006);
+    filter: blur(3px) brightness(1.04);
+  }
+}
+
+#mainContent.main-entering {
+  opacity: 0;
+  transform: none !important;
+  filter: none !important;
+}
+
+#mainContent.main-enter-active {
+  opacity: 1;
+  transform: none !important;
+  filter: none !important;
+  transition: opacity var(--hero-enter-duration, 650ms) ease-out !important;
+}
+
+#mainContent.main-entering .hero-content {
+  animation: heroV41ShortReveal var(--hero-enter-duration, 650ms) ease-out both !important;
+}
+
+@keyframes heroV41ShortReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==============================
+   V42 CENTER ALERT GOOGLE SHEET
+   ============================== */
+
+.center-alert {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(31, 24, 8, .16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 220ms ease,
+    visibility 220ms ease;
+}
+
+.center-alert.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.center-alert-card {
+  width: min(86vw, 360px);
+  min-height: 118px;
+  padding: 26px 22px;
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  text-align: center;
+  background: rgba(255, 253, 247, .84);
+  border: 1px solid rgba(216, 169, 40, .32);
+  box-shadow:
+    0 24px 70px rgba(40, 30, 8, .20),
+    inset 0 1px 0 rgba(255, 255, 255, .68);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  transform: translateY(10px) scale(.96);
+  transition: transform 260ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.center-alert.is-visible .center-alert-card {
+  transform: translateY(0) scale(1);
+}
+
+.center-alert-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-soft));
+  color: var(--color-primary-deep);
+  font-weight: 900;
+  font-size: 1.35rem;
+  box-shadow: 0 12px 28px rgba(216, 169, 40, .25);
+}
+
+.center-alert-text {
+  color: var(--color-text-primary);
+  font-size: .98rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.center-alert-error .center-alert-icon {
+  background: rgba(255, 240, 236, .95);
+  color: #B43824;
+}
+
+.center-alert-success .center-alert-icon {
+  background: rgba(239, 255, 244, .95);
+  color: #2E8B57;
+}
+
+.center-alert-spinner {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 3px solid rgba(216, 169, 40, .28);
+  border-top-color: var(--color-primary-deep);
+  animation: centerAlertSpin .8s linear infinite;
+}
+
+@keyframes centerAlertSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 520px) {
+  .center-alert-card {
+    width: min(88vw, 330px);
+    border-radius: 26px;
+    padding: 24px 18px;
+  }
+}
+
+
+/* ==============================
+   V43 CENTER FORM STATUS MESSAGE
+   ============================== */
+
+/* Status pesan RSVP dan Ucapan/Doa dibuat berada di tengah card/form */
+.status-message,
+#rsvpStatus,
+#wishStatus,
+#wishesStatus {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin: 16px auto 0 !important;
+  padding: 12px 16px !important;
+  border-radius: 18px !important;
+  font-size: .94rem !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+}
+
+.status-message.success,
+#rsvpStatus.success,
+#wishStatus.success,
+#wishesStatus.success {
+  background: rgba(239, 255, 244, .72) !important;
+  color: #2E7D4F !important;
+  border: 1px solid rgba(46, 125, 79, .18) !important;
+}
+
+.status-message.error,
+#rsvpStatus.error,
+#wishStatus.error,
+#wishesStatus.error {
+  background: rgba(255, 240, 236, .72) !important;
+  color: #B43824 !important;
+  border: 1px solid rgba(180, 56, 36, .18) !important;
+}
+
+/* Pesan proses kirim juga tetap rata tengah */
+.status-message:not(:empty),
+#rsvpStatus:not(:empty),
+#wishStatus:not(:empty),
+#wishesStatus:not(:empty) {
+  min-height: 46px !important;
+}
+
+
+/* ==============================
+   V44 PORTRAIT VIDEO DESKTOP CENTER CROP
+   ============================== */
+
+/* Video portrait di desktop tetap memenuhi layar dan mengambil bagian tengah video */
+.intro-video {
+  object-fit: var(--intro-video-object-fit, cover) !important;
+  object-position: var(--intro-video-object-position, center center) !important;
+}
+
+@media (min-width: 721px) {
+  .intro-video-overlay {
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    background: #000 !important;
+  }
+
+  .intro-video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    object-fit: var(--intro-video-object-fit, cover) !important;
+    object-position: var(--intro-video-object-position, center center) !important;
+    transform-origin: center center !important;
+  }
+}
+
+
+/* ==============================
+   V45 DESKTOP MOUSE SCROLL FIX
+   ============================== */
+
+/* Pastikan halaman benar-benar bisa discroll setelah invitation terbuka */
+html,
+body {
+  overscroll-behavior-y: auto !important;
+}
+
+body.invitation-opened,
+body.scroll-performance-mode {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  touch-action: pan-y !important;
+}
+
+/* Jika overlay video sudah berubah menjadi audio-only, jangan tangkap scroll/click */
+.video-overlay-cleared .intro-video-overlay,
+.intro-video-overlay.intro-video-audio-only {
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+}
+
+/* Desktop: kurangi efek berat yang membuat wheel mouse terasa seperti ditahan */
+@media (min-width: 721px) {
+  body.scroll-performance-mode .parallax-bg,
+  body.scroll-performance-mode .parallax-ornament,
+  body.scroll-performance-mode .ornament {
+    transform: translateZ(0) !important;
+    will-change: auto !important;
+  }
+
+  body.scroll-performance-mode .glass,
+  body.scroll-performance-mode .card,
+  body.scroll-performance-mode .form-card,
+  body.scroll-performance-mode .guestbook-card,
+  body.scroll-performance-mode .location-card,
+  body.scroll-performance-mode .gift-card {
+    will-change: auto !important;
+  }
+
+  /* Blur besar di desktop saat scroll sering terasa berat */
+  body.scroll-performance-mode .hero-bg {
+    will-change: auto !important;
+  }
+
+  /* AOS tetap jalan, tapi transisi dibuat lebih ringan di desktop */
+  body.scroll-performance-mode [data-aos] {
+    transition-duration: 520ms !important;
+  }
+}
+
+/* Jika browser mendukung preferensi reduced motion, hormati agar scroll lebih ringan */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg,
+  .parallax-ornament,
+  .ornament,
+  [data-aos] {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

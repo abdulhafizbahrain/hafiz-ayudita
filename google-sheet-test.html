@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Google Sheet Test</title>
+  <style>
+    body{font-family:Arial,sans-serif;padding:20px;background:#fff8e1;color:#3b2b14}
+    .card{background:white;padding:16px;border-radius:16px;margin:14px 0;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    button{padding:12px 16px;border:0;border-radius:12px;background:#d8a928;color:white;font-weight:700;margin:6px 6px 6px 0}
+    pre{background:#fff7da;padding:14px;border-radius:14px;white-space:pre-wrap;word-break:break-word;min-height:90px}
+    input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #d8a928;margin:6px 0 10px;box-sizing:border-box}
+  </style>
+</head>
+<body>
+  <h1>Google Sheet Test</h1>
+  <p>Test ini sengaja tidak memakai fetch CORS untuk kirim data, supaya tidak muncul error <b>No Access-Control-Allow-Origin</b>.</p><p><b>Disarankan:</b> Jalankan lewat <code>http://localhost:8000/google-sheet-test.html</code>, bukan double click <code>file://</code>.</p>
+  <div class="card">
+    <h2>URL Web App</h2>
+    <pre>https://script.google.com/macros/s/AKfycbwpd5fYdLKpaJTZJTkPa3lbpbj7tH0I9IMn_ZwN18_2cz544gGWtjd3d1lawHRkZRXa/exec</pre>
+  </div>
+
+  <div class="card">
+    <h2>Test Kirim RSVP</h2>
+    <input id="rsvpName" value="Test RSVP">
+    <select id="rsvpStatus">
+      <option>Hadir</option>
+      <option>Tidak Hadir</option>
+      <option>Masih Ragu</option>
+    </select>
+    <button onclick="testRsvp()">Kirim Test RSVP</button>
+  </div>
+
+  <div class="card">
+    <h2>Test Kirim Ucapan & Doa</h2>
+    <input id="wishName" value="Test Ucapan">
+    <textarea id="wishMessage">Semoga lancar dan berkah.</textarea>
+    <button onclick="testWish()">Kirim Test Ucapan</button>
+  </div>
+
+  <div class="card">
+    <h2>Test Klik Link / Tracking Tamu</h2>
+    <input id="guestName" value="Abdul Hafiz">
+    <button onclick="testOpen(false)">Test Klik Link Tanpa Lokasi</button>
+    <button onclick="testOpen(true)">Test Klik Link Dengan Lokasi</button>
+  </div>
+
+  <div class="card">
+    <h2>Test Ambil Data</h2>
+    <button onclick="testGet('get_rsvp')">Ambil RSVP</button>
+    <button onclick="testGet('get_wishes')">Ambil Ucapan</button>
+    <button onclick="testGet('get_opens')">Ambil Klik Link</button>
+  </div>
+
+  <div class="card">
+    <h2>Hasil</h2>
+    <pre id="result">Klik tombol test.</pre>
+  </div>
+
+  <script>
+    const APP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwpd5fYdLKpaJTZJTkPa3lbpbj7tH0I9IMn_ZwN18_2cz544gGWtjd3d1lawHRkZRXa/exec";
+    const result = document.getElementById("result");
+
+    function now() {
+      return new Date().toISOString();
+    }
+
+    function noCorsWrite(action, payload) {
+      result.textContent = "Mengirim " + action + "...\nCatatan: mode no-cors tidak bisa membaca response, tapi menghindari error CORS.";
+      return fetch(APP_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ action, payload }),
+        keepalive: true
+      }).then(() => {
+        result.textContent = "Request terkirim. Cek Google Sheet.\n\n" + JSON.stringify({ action, payload }, null, 2);
+      }).catch(err => {
+        result.textContent = "Gagal mengirim:\n" + err;
+      });
+    }
+
+    function jsonp(action, payload = {}) {
+      return new Promise(resolve => {
+        const cb = "cb_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+        const script = document.createElement("script");
+        const url = new window.URL(APP_SCRIPT_URL);
+        url.searchParams.set("action", action);
+        url.searchParams.set("callback", cb);
+        if (Object.keys(payload).length) url.searchParams.set("payload", JSON.stringify(payload));
+
+        let done = false;
+        window[cb] = data => {
+          if (done) return;
+          done = true;
+          delete window[cb];
+          script.remove();
+          resolve(data);
+        };
+
+        script.onerror = () => {
+          if (done) return;
+          done = true;
+          delete window[cb];
+          script.remove();
+          resolve({ ok:false, error:"JSONP gagal. Redeploy Apps Script versi terbaru." });
+        };
+
+        setTimeout(() => {
+          if (done) return;
+          done = true;
+          delete window[cb];
+          script.remove();
+          resolve({ ok:false, error:"Timeout. Redeploy Apps Script versi terbaru atau cek akses Web App." });
+        }, 15000);
+
+        script.src = url.toString();
+        document.head.appendChild(script);
+      });
+    }
+
+    function testRsvp() {
+      const payload = {
+        timestamp: now(),
+        name: document.getElementById("rsvpName").value,
+        status: document.getElementById("rsvpStatus").value,
+        guestCount: "1",
+        note: "Test RSVP dari google-sheet-test.html",
+        invitationTo: "Test Dynamic Link",
+        userAgent: navigator.userAgent
+      };
+      return noCorsWrite("submit_rsvp", payload);
+    }
+
+    function testWish() {
+      const payload = {
+        timestamp: now(),
+        name: document.getElementById("wishName").value,
+        message: document.getElementById("wishMessage").value,
+        invitationTo: "Test Dynamic Link",
+        approved: true
+      };
+      return noCorsWrite("submit_wish", payload);
+    }
+
+    function getLocationIfNeeded(need) {
+      return new Promise(resolve => {
+        if (!need || !navigator.geolocation) {
+          resolve({
+            locationStatus: need ? "unsupported" : "not_requested",
+            latitude: "",
+            longitude: "",
+            accuracy: "",
+            mapsUrl: ""
+          });
+          return;
+        }
+
+        navigator.geolocation.getCurrentPosition(pos => {
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+          resolve({
+            locationStatus: "allowed",
+            latitude: lat,
+            longitude: lng,
+            accuracy: pos.coords.accuracy,
+            mapsUrl: "https://www.google.com/maps?q=" + lat + "," + lng
+          });
+        }, err => {
+          resolve({
+            locationStatus: "denied_or_failed_" + err.code,
+            latitude: "",
+            longitude: "",
+            accuracy: "",
+            mapsUrl: ""
+          });
+        }, { enableHighAccuracy:false, timeout:6000, maximumAge:60000 });
+      });
+    }
+
+    async function testOpen(withLocation) {
+      const loc = await getLocationIfNeeded(withLocation);
+      const payload = {
+        timestamp: now(),
+        eventType: withLocation ? "test_open_with_location" : "test_open",
+        guestName: document.getElementById("guestName").value,
+        pageUrl: location.href,
+        referrer: document.referrer || "",
+        userAgent: navigator.userAgent,
+        ...loc
+      };
+      return noCorsWrite("track_open", payload);
+    }
+
+    async function testGet(action) {
+      result.textContent = "Mengambil data " + action + " memakai JSONP...";
+      const data = await jsonp(action);
+      result.textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

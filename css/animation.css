@@ -1,0 +1,39 @@
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); opacity: .8; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+  50% { transform: translate3d(0, -14px, 0) rotate(3deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 18px var(--color-glow); }
+  50% { box-shadow: 0 0 44px var(--color-glow); }
+}
+
+.cover-card,
+.primary-button,
+.floating-audio {
+  animation: glowPulse 2.6s ease-in-out infinite;
+}
+
+.ornament {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+.section-zoom {
+  animation: sectionZoom .55s cubic-bezier(0.22,1,0.36,1);
+}
+
+@keyframes sectionZoom {
+  from {
+    opacity: .4;
+    transform: scale(.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

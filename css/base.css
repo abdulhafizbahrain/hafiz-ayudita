@@ -1,0 +1,169 @@
+:root {
+  --color-primary: #F6D365;
+  --color-primary-soft: #FFF3B8;
+  --color-primary-deep: #D8A928;
+  --color-secondary: #FFF8E1;
+  --color-accent: #B88A2A;
+  --color-background: #FFFDF7;
+  --color-background-soft: #FFF7DA;
+  --color-text-primary: #3B2B14;
+  --color-text-secondary: #75613C;
+  --color-card: rgba(255, 255, 255, 0.74);
+  --color-card-strong: rgba(255, 253, 247, 0.92);
+  --color-border: rgba(216, 169, 40, 0.28);
+  --color-button: #D8A928;
+  --color-button-text: #FFFFFF;
+  --color-glow: rgba(246, 211, 101, 0.55);
+  --color-overlay: rgba(38, 25, 7, 0.36);
+  --color-success: #2E7D32;
+  --color-error: #B3261E;
+  --color-input: rgba(255, 255, 255, 0.85);
+
+  --font-heading: 'Playfair Display', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Inter', sans-serif;
+
+  --radius-card: 28px;
+  --shadow-soft: 0 18px 50px rgba(70, 48, 9, 0.16);
+  --shadow-glow: 0 0 38px var(--color-glow);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-background);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 20% 5%, var(--color-primary-soft), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(255, 241, 178, .85), transparent 25%),
+    linear-gradient(180deg, var(--color-background) 0%, var(--color-background-soft) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section {
+  position: relative;
+  padding: 72px 20px;
+  overflow: hidden;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 7vw, 3.1rem);
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 14px;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0 auto 28px;
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+.soft-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--color-button), var(--color-primary));
+  color: var(--color-button-text);
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 700;
+  box-shadow: var(--shadow-glow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px var(--color-glow);
+}
+
+.secondary-button {
+  background: rgba(255,255,255,.65);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+}
+
+input, select, textarea {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background: var(--color-input);
+  color: var(--color-text-primary);
+  padding: 14px 16px;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 112px;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+}
+
+.form-row {
+  margin-bottom: 16px;
+}
+
+.status-message {
+  margin-top: 12px;
+  font-size: .92rem;
+  color: var(--color-text-secondary);
+}
+
+.status-message.success { color: var(--color-success); }
+.status-message.error { color: var(--color-error); }

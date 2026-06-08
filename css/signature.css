@@ -1,0 +1,168 @@
+.signature-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  margin: 10px auto 18px;
+}
+
+.signature-wrap.hero-signature {
+  margin-top: -2px;
+  margin-bottom: 18px;
+}
+
+.signature-wrap.closing-signature {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.signature-svg {
+  width: var(--signature-width, 132px);
+  height: var(--signature-height, 34px);
+  overflow: visible;
+  opacity: var(--signature-opacity, .95);
+}
+
+.signature-svg path,
+.signature-svg text {
+  stroke: var(--signature-stroke, var(--color-border));
+  fill: transparent;
+  stroke-width: var(--signature-stroke-width, 2.8);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: var(--signature-glow, drop-shadow(0 0 8px var(--color-glow)));
+}
+
+.signature-svg text {
+  font-family: var(--font-script);
+  font-size: 42px;
+  stroke-width: 1.15;
+}
+
+.signature-path {
+  stroke-dasharray: var(--signature-length, 600);
+  stroke-dashoffset: var(--signature-length, 600);
+}
+
+.signature-animate .signature-path {
+  animation: signatureDraw var(--signature-duration, 1600ms) ease forwards;
+  animation-delay: var(--signature-delay, 120ms);
+}
+
+.signature-animate.signature-repeat .signature-path {
+  animation-iteration-count: 1;
+}
+
+@keyframes signatureDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.signature-title-replace {
+  margin-bottom: 2px;
+}
+
+.signature-title-svg {
+  width: min(100%, var(--signature-title-width, 310px));
+  height: var(--signature-title-height, 58px);
+  overflow: visible;
+}
+
+.signature-title-svg text {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  stroke: var(--signature-stroke, var(--color-accent));
+  fill: transparent;
+  stroke-width: 1.05;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: var(--signature-glow, drop-shadow(0 0 8px var(--color-glow)));
+  paint-order: stroke;
+}
+
+.signature-title-fill text {
+  fill: var(--signature-fill, var(--color-border));
+  stroke: transparent;
+  filter: none;
+  opacity: 0;
+  animation: signatureFillIn 650ms ease forwards;
+  animation-delay: calc(var(--signature-duration, 2200ms) + var(--signature-delay, 80ms) - 180ms);
+}
+
+.signature-animate .signature-title-path {
+  animation: signatureDraw var(--signature-duration, 2200ms) ease forwards;
+  animation-delay: var(--signature-delay, 80ms);
+}
+
+@keyframes signatureFillIn {
+  to {
+    opacity: var(--signature-fill-opacity, .92);
+  }
+}
+
+
+.hero-signature.replace-hero-name {
+  margin: 12px auto 18px;
+}
+
+.hero-signature.replace-hero-name .signature-svg text {
+  font-size: 54px;
+  stroke-width: 1.2;
+}
+
+.signature-fill text {
+  fill: var(--signature-fill, var(--color-border));
+  stroke: transparent;
+  filter: none;
+  opacity: 0;
+  animation: signatureFillIn 650ms ease forwards;
+  animation-delay: calc(var(--signature-duration, 2200ms) + var(--signature-delay, 80ms) - 180ms);
+}
+
+
+/* FIX: pastikan fillColor dari config/signature.config.js benar-benar diterapkan.
+   Selector ini dibuat lebih spesifik dari aturan fill: transparent sebelumnya. */
+.signature-svg .signature-fill text,
+.signature-title-svg .signature-title-fill text {
+  fill: var(--signature-fill, var(--color-border)) !important;
+  stroke: transparent !important;
+}
+
+.signature-svg .signature-fill text {
+  opacity: 0;
+  animation: signatureFillIn 650ms ease forwards;
+  animation-delay: calc(var(--signature-duration, 2200ms) + var(--signature-delay, 80ms) - 180ms);
+}
+
+.signature-title-svg .signature-title-fill text {
+  opacity: 0;
+  animation: signatureFillIn 650ms ease forwards;
+  animation-delay: calc(var(--signature-duration, 2200ms) + var(--signature-delay, 80ms) - 180ms);
+}
+
+
+/* V6 FIX: warna signature dipisah agar fillColor dari config benar-benar bekerja */
+.signature-svg .signature-stroke-text,
+.signature-title-svg .signature-stroke-text {
+  stroke: var(--signature-stroke, #D8A928) !important;
+  fill: transparent !important;
+}
+
+.signature-svg .signature-fill-text,
+.signature-title-svg .signature-fill-text {
+  fill: var(--signature-fill, #D8A928) !important;
+  stroke: transparent !important;
+  filter: none !important;
+  opacity: 0;
+  animation: signatureFillIn 650ms ease forwards;
+  animation-delay: calc(var(--signature-duration, 2200ms) + var(--signature-delay, 80ms) - 180ms);
+}
+
+.signature-svg .signature-love-path,
+.signature-title-svg .signature-love-path {
+  stroke: var(--signature-stroke, #D8A928) !important;
+  fill: transparent !important;
+}

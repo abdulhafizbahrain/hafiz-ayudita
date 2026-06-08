@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F6D365" />
+  <title id="pageTitle">Undangan Akad & Resepsi</title>
+
+  <!-- Fonts: bisa diganti dari config/font di CSS variable -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Optional libraries via CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animation.css" />
+  <link rel="stylesheet" href="css/signature.css" />
+  <link rel="stylesheet" href="css/backdrop.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="preload" href="assets/video/video.mp4" as="video" type="video/mp4">
+  <link rel="preload" href="assets/images/cover.jpeg" as="image">
+  <link rel="preload" href="assets/images/background-mobile.jpeg" as="image">
+</head>
+<body>
+  <div id="app">
+    <div id="loadingScreen" class="loading-screen">
+      <div class="loader-heart">♥</div>
+      <p>Menyiapkan undangan...</p>
+    </div>
+
+    <section id="cover" class="cover-section"></section>
+
+    <main id="mainContent" class="main-content hidden">
+      <section id="hero" class="section hero-section"></section>
+      <section id="quote" class="section quote-section"></section>
+      <section id="couple" class="section couple-section"></section>
+      <section id="event" class="section event-section"></section>
+      <section id="countdown" class="section countdown-section"></section>
+      <section id="location" class="section location-section"></section>
+      <section id="gallery" class="section gallery-section"></section>
+      <section id="loveStory" class="section story-section"></section>
+      <section id="gift" class="section gift-section"></section>
+      <section id="rsvp" class="section rsvp-section"></section>
+      <section id="wishes" class="section wishes-section"></section>
+      <section id="guestBook" class="section guestbook-section"></section>
+      <section id="closing" class="section closing-section"></section>
+    </main>
+
+    <nav id="bottomNav" class="bottom-nav nav-hidden"></nav>
+    <button id="videoAudioToggle" class="video-audio-toggle video-audio-hidden" type="button" aria-label="Pause backsound" aria-pressed="false">❚❚</button>
+    <button id="audioToggle" class="floating-audio audio-hidden hidden" aria-label="Toggle music" aria-pressed="false">♫</button>
+    <audio id="weddingAudioElement" preload="auto" loop playsinline></audio>
+  </div>
+
+  <!-- Config files: isi data dari sini, bukan dari HTML -->
+  <script src="config/page.config.js"></script>
+  <script src="config/main.config.js"></script>
+  <script src="config/couple.config.js"></script>
+  <script src="config/event.config.js"></script>
+  <script src="config/color.config.js"></script>
+  <script src="config/theme.config.js"></script>
+  <script src="config/backdrop.config.js"></script>
+  <script src="config/signature.config.js"></script>
+  <script src="config/section.config.js"></script>
+  <script src="config/location.config.js"></script>
+  <script src="config/media.config.js"></script>
+  <script src="config/video.config.js"></script>
+  <script src="config/preload.config.js"></script>
+  <script src="config/audio.config.js"></script>
+  <script src="config/animation.config.js"></script>
+  <script src="config/parallax.config.js"></script>
+  <script src="config/google-sheet.config.js"></script>
+  <script src="config/tracking.config.js"></script>
+  <script src="config/rsvp.config.js"></script>
+  <script src="config/wishes.config.js"></script>
+  <script src="config/gift.config.js"></script>
+  <script src="config/navigation.config.js"></script>
+  <script src="config/contact.config.js"></script>
+
+  <!-- Libraries -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@6.0.1/dist/simpleParallax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- App scripts -->
+  <script src="js/utils.js"></script>
+  <script src="js/page.js"></script>
+  <script src="js/config-loader.js"></script>
+  <script src="js/guest.js"></script>
+  <script src="js/google-sheet.js"></script>
+  <script src="js/tracking.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/preload.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/video.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/signature.js"></script>
+  <script src="js/center-alert.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/form-sync.js"></script>
+  <script src="js/wishes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

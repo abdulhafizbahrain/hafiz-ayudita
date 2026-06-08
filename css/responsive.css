@@ -1,0 +1,46 @@
+@media (min-width: 720px) {
+  .section {
+    padding: 90px 34px;
+  }
+
+  .couple-grid,
+  .event-grid {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .couple-separator {
+    padding: 0 12px;
+  }
+
+  .countdown-grid {
+    gap: 16px;
+  }
+
+  .countdown-value {
+    font-size: 2rem;
+  }
+
+  .cover-card {
+    padding: 46px 36px;
+  }
+}
+
+@media (max-width: 380px) {
+  .bottom-nav button {
+    font-size: .64rem;
+  }
+
+  .hero-names {
+    font-size: 3.5rem;
+  }
+
+  .section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
