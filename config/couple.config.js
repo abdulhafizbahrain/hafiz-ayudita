@@ -18,7 +18,7 @@ const COUPLE_CONFIG = {
     shortName: "Hafiz",
     displayName: "ABDUL HAFIZ BAHRAIN",
     fullName: "ABDUL HAFIZ BAHRAIN, S.Kom",
-    fatherName: "ABU ABDUL AZIZ JALALIN",
+    fatherName: "ABU ABDUL AZIZ JALALAIN",
     motherName: "NURILAM",
     childLabel: "Putra dari",
 
