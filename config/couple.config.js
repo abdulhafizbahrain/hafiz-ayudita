@@ -22,7 +22,7 @@ const COUPLE_CONFIG = {
     motherName: "NURILAM",
     childLabel: "Putra dari",
 
-    // Foto pada card mempelai.
+    // Foto pada card mempelai
     // enabled: true/false
     // shape: "rounded" | "circle" | "soft-square"
     photo: {
